@@ -32,7 +32,7 @@ namespace exam2022
         static int Complement9(int input)
         {
             int aux = input; 
-            int digits = 0;         // 9999 - 1230 
+            int digits = 0;         
             while(aux > 0)
             {
                 digits++;
@@ -98,7 +98,7 @@ namespace exam2022
         /// <param name="t"></param>
         static void EX2(int[] v, int t)
         {
-            // solutie banala
+            // solutie banala cu complexitate n^2
             //for (int i = 0; i < v.Length; i++)
             //{
             //    for (int j = i + 1; j < v.Length; j++)
@@ -111,11 +111,11 @@ namespace exam2022
             //    }
             //}
 
-            Array.Sort(v);
+            Array.Sort(v);  // ar trebui implementat un algoritm de sortare
 
             int left = 0;
             int right = v.Length - 1;
-            while (left < right)
+            while (left < right)   // solutie liniara pentru un vector sortat
             {
                 if (v[left] + v[right] > t)
                 {
@@ -152,22 +152,16 @@ namespace exam2022
                 {                                      
                     nr3 = nr2;
                     nr2 = nr1;
-                    nr1 = input;
-                    s = Console.ReadLine();
-                    continue;
+                    nr1 = input;                   
                 }
-                if(input >= nr2)
+                else if(input >= nr2)
                 {
                     nr3 = nr2;
-                    nr2 = input;
-                    s = Console.ReadLine();
-                    continue;
+                    nr2 = input;                   
                 }
-                if(input >= nr3)
+                else if(input >= nr3)
                 {
-                    nr3 = input;
-                    s = Console.ReadLine();
-                    continue;
+                    nr3 = input;                   
                 }
                 s = Console.ReadLine();
             }
@@ -227,7 +221,7 @@ namespace exam2022
             }
             return true;
         }
-        /*
+        /* Incape pisica intre ecuatorul curent si un ecuator imaginar cu 1m mai lung decat cel curent? 
          * ecuator = r1 * 2pi => r1 = ecuator / 2pi
          * ecuator + 1 = r2 * 2pi => r2 = ecuator + 1 / 2pi 
          * 
@@ -286,7 +280,7 @@ namespace exam2022
             {
                 return Math.Max(CifraPara(n / 10), n % 10);
             }
-            else return Math.Max(CifraPara(n / 10), -1);
+            else return CifraPara(n / 10);
         }
     }
 }
